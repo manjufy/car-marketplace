@@ -2,6 +2,8 @@
 
 ## How to Start
 
+    Install `npm install -g nodemon` to be able to run the app without restarting.
+
 Navigate to the project root directory
 
     npm install
