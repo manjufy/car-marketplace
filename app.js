@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const app = express();
 
 // view engine setup
@@ -15,6 +14,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Sync Models
+(async function() {
+    // Load the models
+    const Models = require('./models');
+    // Synd the Models with DB
+    await Models.sequelize.sync();
+})();
 
 // View
 const indexRouter = require('./app/routes/index');
