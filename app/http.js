@@ -12,3 +12,5 @@ const carsRouter = require('./routes/cars');
 router.use('/', homeRouter);
 router.use('/users', usersRouter);
 router.use('/cars', carsRouter);
+
+module.exports = router;
