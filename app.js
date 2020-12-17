@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Sync Models
 (async function() {
     // Load the models
-    const Models = require('./models');
+    const Models = require('./app/models');
     // Synd the Models with DB
     await Models.sequelize.sync();
 })();

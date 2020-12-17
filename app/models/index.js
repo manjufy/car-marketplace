@@ -5,7 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const dbConfig = require('../config')[env].db;
+const dbConfig = require('../../config')[env].db;
 if (!dbConfig) {
   throw Error(`Missing DB configuration`);
 }
