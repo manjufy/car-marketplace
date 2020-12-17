@@ -7,6 +7,8 @@ module.exports = router;
  */
 const homeRouter = require('./routes/home');
 const usersRouter = require('./routes/users');
+const carsRouter = require('./routes/cars');
 
 router.use('/', homeRouter);
 router.use('/users', usersRouter);
+router.use('/cars', carsRouter);
