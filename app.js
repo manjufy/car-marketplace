@@ -15,14 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Sync Models
-(async function() {
-    // Load the models
-    const Models = require('./app/models');
-    // Synd the Models with DB
-    await Models.sequelize.sync();
-})();
-
 // View
 const indexRouter = require('./app/routes/index');
 app.use('/', indexRouter);

@@ -23,7 +23,15 @@ module.exports = (sequelize, DataTypes) => {
       state: DataTypes.STRING(100),
       status: DataTypes.STRING(10),
       active: DataTypes.BOOLEAN,
-  });
+      created_at: { type: DataTypes.DATE },
+      updated_at: { type: DataTypes.DATE },
+  },
+  // change to snake-case
+  {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
+  }
+  );
 
   return Users;
 };

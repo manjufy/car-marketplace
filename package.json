@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon server.js",
-    "sequelize": "node_modules/.bin/sequelize"
+    "init": "rm -rf data.sqlite_development && node_modules/.bin/sequelize-cli db:migrate",
+    "dev": "npm run init && nodemon server.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
