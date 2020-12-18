@@ -43,5 +43,5 @@ Navigate to the project root directory
         - Then with the username and password, LOGIN [POST /api/auth/login] - This endpoint would generate a bearer token
         - Copy the token and fill in the initial and current values in the Variables section so that we could run the rest of the endpoints in the postman without having to set Authorization header
 
-    ![Edit Collection](https://github.com/manjufy/car-marketplace/blob/master/images/image-1.png)
-    ![Update bearerToken](https://github.com/manjufy/car-marketplace/blob/master/images/image-2.png)
+![Edit Collection](https://github.com/manjufy/car-marketplace/blob/master/images/image-1.png)
+![Update bearerToken](https://github.com/manjufy/car-marketplace/blob/master/images/image-2.png)
