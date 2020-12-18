@@ -39,7 +39,17 @@ const list = async (params) => {
     })
 };
 
+const get = async (params) => {
+    return await carModel.findOne({
+        where: {
+            id: params.id,
+            user_id: params.user.id,
+        }
+    })
+};
+
 module.exports = {
     upsert,
     list,
+    get,
 }
