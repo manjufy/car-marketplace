@@ -43,3 +43,5 @@ Navigate to the project root directory
         - Then with the username and password, LOGIN [POST /api/auth/login] - This endpoint would generate a bearer token
         - Copy the token and fill in the initial and current values in the Variables section
 
+        ![Edit Collection](http://url/to/img.png)
+        ![Update bearerToken](http://url/to/img.png)
