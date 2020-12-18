@@ -17,10 +17,17 @@ const list = async (req, res) => {
 };
 
 const upsert = async (req, res) => {
+    
     try {
         const params = req.body;
         params.car_id = req.params.car_id;
         params.user = req.user;
+
+        if (req.method === 'PATCH') {
+            params.__patch = true;
+            params.id = req.params.id;
+        }
+
         const result = await availabilityService.upsert(params);
 
         return res.status(204).json(result);
