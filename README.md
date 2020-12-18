@@ -38,7 +38,8 @@ Navigate to the project root directory
     - Navigate to Postman
     - Look for **Import** button on the top right
     - Browse the postman collection and import it
-    - Edit the collection, in the Variables section, set a Variable called `bearerToken` and fill in Initial and current values. To do so, 
+    - Edit the collection, in the Variables section, set a Variable called `bearerToken` and fill in Initial and current values (As shown below in the screenshots). To do so, 
         - You would have to register an account with API [POST /api/auth/registration] - first postman collection endpoint
         - Then with the username and password, LOGIN [POST /api/auth/login] - This endpoint would generate a bearer token
         - Copy the token and fill in the initial and current values in the Variables section
+
