@@ -1,18 +1,16 @@
 /**
  * Users Controller
 */
-const { users: userModel} = require('../models');
-const get = async (req, res) => {
-    // FIXME: Just get the logged in user
-    const users = await userModel.findAll({
-        attributes: {
-            exclude: ['password']
-        }
+const userService = require('../services/users');
+const me = async (req, res) => {
+    const user = req.user;
+    const result = await userService.find(user.email,  {
+        exclude: ['password']
     });
 
-    return res.status(200).json(users);
+    return res.status(200).json(result);
 };
 
 module.exports = {
-    get,
+    me,
 }

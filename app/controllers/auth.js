@@ -3,14 +3,19 @@
 */
 const { users: userModel} = require('../models');
 const common = require('../../common');
-const list = async (req, res) => {
-    const users = await userModel.findAll({
-        attributes: {
-            exclude: ['password']
-        }
-    });
+const config = require('../../config');
+const jwt = require('jwt-simple');
 
-    return res.status(200).json(users);
+const login = async (req, res) => {
+    const user = req.user;
+    const token = jwt.encode({ user }, config.auth.secret);
+    console.log(`req.session.passport: ${JSON.stringify(req.session.passport)}`)
+    console.log(`req.user: ${JSON.stringify(req.user)}`)
+
+    return res.status(200).json({
+        token: token,
+        message: "successfully logged in"
+    });
 };
 
 const register = async (req, res) => {
@@ -35,6 +40,6 @@ const register = async (req, res) => {
 };
 
 module.exports = {
-    list,
+    login,
     register,
 }

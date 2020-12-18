@@ -10,5 +10,8 @@ module.exports = {
     },
     production: {
         db: database.production
+    },
+    auth: {
+        secret: 'redbull@f1.com',
     }
 }
