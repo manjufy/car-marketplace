@@ -1,15 +1,16 @@
 # Car Marketplace
 
-## How to Start
+## Project setup
 
     Install `npm install -g nodemon` to be able to run the app without restarting.
 
 Navigate to the project root directory
 
     npm install
-    npm run dev // Note: on each run, script clean up the database and re-populates the tables with clean state. Please refer to package.json -> scripts
+    npm run dev // Note: on each run (for both development and tests), script will clean up the database and re-populates the tables with clean state by running the migration. Please refer to package.json -> scripts
 
-    Navigate to http://localhost:3000
+    Navigate to Home Page http://localhost:3000
+    API Home Page http://localhost:3000/api
 
 ## Migrations
 
