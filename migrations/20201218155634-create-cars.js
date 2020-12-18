@@ -8,17 +8,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'users',
+          },
+          key: 'id'
+        },
+      },
       year: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       make: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(100),
+        allowNull: false,
       },
       model: {
-        type: Sequelize.STRING(150)
+        type: Sequelize.STRING(150),
+        allowNull: false,
       },
       reg_no: {
-        type: Sequelize.STRING(20)
+        type: Sequelize.STRING(20),
+        allowNull: false,
       },
       mileage: {
         type: Sequelize.INTEGER,

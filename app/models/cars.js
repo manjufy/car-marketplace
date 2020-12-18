@@ -7,17 +7,31 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: {
+          tableName: 'users',
+        },
+        key: 'id'
+      },
+    },
     year: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     make: {
-      type: DataTypes.STRING(100)
+      type: DataTypes.STRING(100),
+      allowNull: false,
     },
     model: {
-      type: DataTypes.STRING(150)
+      type: DataTypes.STRING(150),
+      allowNull: false,
     },
     reg_no: {
-      type: DataTypes.STRING(20)
+      type: DataTypes.STRING(20),
+      allowNull: false,
     },
     mileage: {
       type: DataTypes.INTEGER,

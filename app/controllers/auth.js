@@ -1,5 +1,5 @@
 /**
- * Users Controller
+ * Auth Controller
 */
 const { users: userModel} = require('../models');
 const common = require('../../common');
