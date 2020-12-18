@@ -29,3 +29,16 @@ Navigate to the project root directory
     Navigate to the project root directory
     $car-marketplace > npm test
     ```
+
+## Postman collections
+
+    Postman collection is in the project root directory with the filename `Car Marketplace.postman_collection.json`
+
+    Steps to Import:
+    - Navigate to Postman
+    - Look for **Import** button on the top right
+    - Browse the postman collection and import it
+    - Edit the collection, in the Variables section, set a Variable called `bearerToken` and fill in Initial and current values. To do so, 
+        - You would have to register an account with API [POST /api/auth/registration] - first postman collection endpoint
+        - Then with the username and password, LOGIN [POST /api/auth/login] - This endpoint would generate a bearer token
+        - Copy the token and fill in the initial and current values in the Variables section
