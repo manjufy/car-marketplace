@@ -18,3 +18,14 @@ Navigate to the project root directory
             node_modules/.bin/sequelize-cli migration:generate --name users // TO create new migration
             node_modules/.bin/sequelize-cli db:migrate // To apply the migrations
         ```
+
+## End-to-end tests
+
+    End-to-end tests covers all the scenarios
+
+    How to run?
+
+    ```
+    Navigate to the project root directory
+    $car-marketplace > npm test
+    ```
