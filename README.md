@@ -25,10 +25,9 @@ Navigate to the project root directory
 
     How to run?
 
-    ```
     Navigate to the project root directory
     $car-marketplace > npm test
-    ```
+
 
 ## Postman collections
 
