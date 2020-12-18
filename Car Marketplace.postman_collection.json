@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "f48da179-c70d-4c9d-872c-3416f33d2dab",
+		"name": "Car Marketplace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User [http://localhost:3000/api/auth/register]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bd5704ba-3bbe-4e12-a070-7e625864ca20",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"manju@manju.com\",\n    \"password\": \"test\",\n    \"full_name\": \"Manjunath2 Reddy\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login [http://localhost:3000/api/auth/login]",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "545a6bc4-ae8d-4617-9e44-a3c5a809d04a",
+						"exec": [
+							"var jwtToken = pm.environment.get('jwtToken');",
+							"var sdk = require('postman-collection');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoIFJlZGR5IiwicGhvbmUiOm51bGwsImFkZHJlc3MiOm51bGwsImNpdHkiOm51bGwsInN0YXRlIjpudWxsLCJzdGF0dXMiOiJBQ1RJVkUiLCJhY3RpdmUiOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIwLTEyLTE4VDA1OjExOjU4LjMzNVoiLCJ1cGRhdGVkX2F0IjoiMjAyMC0xMi0xOFQwNToxMTo1OC4zMzVaIn19.XvXL-yiKhSf6pVklSRfauAQYTBK1iEv-MlVCkxRGopE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"manju@manju.com\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Profile [http://localhost:3000/api/users/me]",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"manju168320031@gmail.com\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car:Post [http://localhost:3000/api/cars] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"year\": 2020,\n    \"make\": \"Toyota\",\n    \"model\": \"Vios\",\n    \"reg_no\": \"ABC2323-2\",\n    \"location\": \"C2-232, Bukit Jalil\",\n    \"price_type\": \"DAILY\",\n    \"price\": 100,\n    \"transmission\": \"Automatic\",\n    \"fuel_type\": \"Diesel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car:All (Index) [http://localhost:3000/api/cars] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car:Detail/Show [http://localhost:3000/api/cars/:id] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Availability:Create [http://localhost:3000/api/cars/1/availabilities] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_datetime\": \"2020-12-18 18:20:00\",\n    \"to_datetime\": \"2020-12-19 17:20:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1/availabilities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1",
+						"availabilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Availability:List [http://localhost:3000/api/cars/1/availabilities] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1/availabilities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1",
+						"availabilities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Availability:Show [http://localhost:3000/api/cars/:id/availabilities/1] ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQwOTozMzoxOS4xNTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMDk6MzM6MTkuMTUxWiJ9fQ._yyeZYdajE1rDfO3-fMPIMviFy0kBPTOQnMVqjFP1MA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1/availabilities/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1",
+						"availabilities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Car Availability:Update [http://localhost:3000/api/cars/:id/availabilities/1] ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0d3e299c-de01-4947-b39a-0c4bc26ec31e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1MTY4MzIwMDNAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0IiwiZnVsbF9uYW1lIjoiTWFuanVuYXRoMiBSZWRkeSIsInBob25lIjpudWxsLCJhZGRyZXNzIjpudWxsLCJjaXR5IjpudWxsLCJzdGF0ZSI6bnVsbCwic3RhdHVzIjoiQUNUSVZFIiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkX2F0IjoiMjAyMC0xMi0xOFQxNDowNjowMy40MTFaIiwidXBkYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6MDY6MDMuNDExWiJ9fQ.fZbavxBxKmCskQxHQdawqWJoKYAfz5Vysy6i5yO64Vs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_datetime\": \"2020-12-18 13:00:00\",\n    \"to_datetime\": \"2020-12-20 13:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1/availabilities/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1",
+						"availabilities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9e49ece5-5986-4003-a5e0-54081623e7f0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "550d2371-5ac3-4740-9353-b74053549bc5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "dbaff9b1-6784-4e04-8d61-999af7752024",
+			"key": "bearerToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1hbmp1QG1hbmp1LmNvbSIsInBhc3N3b3JkIjoidGVzdCIsImZ1bGxfbmFtZSI6Ik1hbmp1bmF0aDIgUmVkZHkiLCJwaG9uZSI6bnVsbCwiYWRkcmVzcyI6bnVsbCwiY2l0eSI6bnVsbCwic3RhdGUiOm51bGwsInN0YXR1cyI6IkFDVElWRSIsImFjdGl2ZSI6dHJ1ZSwiY3JlYXRlZF9hdCI6IjIwMjAtMTItMThUMTQ6Mzc6NDIuOTk2WiIsInVwZGF0ZWRfYXQiOiIyMDIwLTEyLTE4VDE0OjM3OjQyLjk5NloifX0.L1sc-NB3Fk-iVxvVsXJsef5mvWpG94cSGAIU02842NI"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
