@@ -2,6 +2,8 @@
 
 ## Project setup
 
+Node Version: v13.11.0 (https://github.com/manjufy/car-marketplace/blob/master/.nvmrc)
+
 Navigate to the project root directory
 
     npm install
