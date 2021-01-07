@@ -1,5 +1,12 @@
 # Car Marketplace
 
+NodeJS / Express App to demonstrate the listing users car on the market for rental. API includes
+ - User Registration
+ - Post Car
+ - Post Availability of a car
+
+ Note that, implementation is not comprehensive, just to show case, express, passport authentcation and authorisation. It uses embedeed sqlite database for storage (feel free to change it to other DBs)
+
 ## Project setup
 
     Install `npm install -g nodemon` to be able to run the app without restarting.
@@ -42,6 +49,3 @@ Navigate to the project root directory
         - You would have to register an account with API [POST /api/auth/registration] - first postman collection endpoint
         - Then with the username and password, LOGIN [POST /api/auth/login] - This endpoint would generate a bearer token
         - Copy the token and fill in the initial and current values in the Variables section so that we could run the rest of the endpoints in the postman without having to set Authorization header
-
-![Edit Collection](https://github.com/manjufy/car-marketplace/blob/master/images/image-1.png)
-![Update bearerToken](https://github.com/manjufy/car-marketplace/blob/master/images/image-2.png)
