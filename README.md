@@ -9,7 +9,7 @@ NodeJS / Express App to demonstrate the listing users car on the market for rent
 
 ## Project setup
 
-    Install `npm install -g nodemon` to be able to run the app without restarting.
+Node Version: v13.11.0 (https://github.com/manjufy/car-marketplace/blob/master/.nvmrc)
 
 Navigate to the project root directory
 
@@ -18,6 +18,8 @@ Navigate to the project root directory
 
     Navigate to Home Page http://localhost:3000
     API Home Page http://localhost:3000/api
+    
+   Note: If we can not make it run locally with `npm run dev` and `npm test`, do consider installing nodemon and mocha globally `npm install -g mocha nodemon`
 
 ## Migrations
 
